@@ -7,7 +7,7 @@ use App\Model\BigFootSightingScore;
 
 class SightingScorer
 {
-    /** @var array ScoringFactorInterface[] */
+    /** @var iterable ScoringFactorInterface[] */
     private iterable $scoringFactors;
 
     public function __construct(iterable $scoringFactors)
@@ -20,7 +20,7 @@ class SightingScorer
     {
         $score = 0;
         foreach ($this->scoringFactors as $factor) {
-            $score += $factor->score($sighting);
+             $score += $factor->score($sighting);
         }
 
         return new BigFootSightingScore($score);
