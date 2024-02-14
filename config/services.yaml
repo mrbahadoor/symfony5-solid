@@ -30,6 +30,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    App\Service\DebuggableSightingScorer: '@App\Service\SightingScorer'
+
     App\Service\SightingScorer: # This is the service id
         class: App\Service\DebuggableSightingScorer # This is the class that will be instantiated
         arguments: # These are the arguments that will be passed to the constructor
