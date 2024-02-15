@@ -38,7 +38,7 @@ class BigFootSightingController extends AbstractController
 
             if($bfsScore instanceof DebuggableBigFootSightingScore){
                 $this->addFlash('success', sprintf(
-                    'Btw, the scoring took %d milliseconds',
+                    'Btw, the scoring took %f milliseconds',
                     $bfsScore->getCalculationTime() * 1000
                 ));
             }

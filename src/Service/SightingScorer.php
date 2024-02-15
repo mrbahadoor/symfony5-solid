@@ -23,6 +23,10 @@ class SightingScorer
              $score += $factor->score($sighting);
         }
 
+        foreach ($this->scoringFactors as $factor) {
+            $score = $factor->adjustScore($score, $sighting);
+        }
+
         return new BigFootSightingScore($score);
     }
 }
