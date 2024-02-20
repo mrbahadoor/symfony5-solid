@@ -36,4 +36,5 @@ services:
         class: App\Service\DebuggableSightingScorer # This is the class that will be instantiated
         arguments: # These are the arguments that will be passed to the constructor
             $scoringFactors: !tagged_iterator scoring.factor # This is a tag that will be used to find services
+            $scoringAdjusters: !tagged_iterator scoring.adjuster # This is a tag that will be used to find services
 

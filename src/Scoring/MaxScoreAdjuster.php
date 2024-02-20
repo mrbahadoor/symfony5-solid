@@ -4,7 +4,7 @@ namespace App\Scoring;
 
 use App\Entity\BigFootSighting;
 
-class MaxScoreAdjuster implements ScoringFactorInterface
+class MaxScoreAdjuster implements ScoreAdjusterInterface
 {
     public function score(BigFootSighting $sighting): int
     {
@@ -13,10 +13,6 @@ class MaxScoreAdjuster implements ScoringFactorInterface
 
     public function adjustScore(int $finalScore, BigFootSighting $sighting): int
     {
-        if ($finalScore > 100) {
-            return 100;
-        }
-
-        return min($finalScore, 100); //IF the final score is greater than 100, return 100, otherwise return the final score
+       return min($finalScore, 100); //IF the final score is greater than 100, return 100, otherwise return the final score
     }
 }

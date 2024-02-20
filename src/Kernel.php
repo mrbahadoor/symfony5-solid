@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use App\Scoring\ScoringFactorInterface;
+use App\Scoring\ScoringAjusterInterface;
 
 class Kernel extends BaseKernel
 {
@@ -44,5 +45,8 @@ class Kernel extends BaseKernel
 
         $container->registerForAutoconfiguration(ScoringFactorInterface::class)
             ->addTag('scoring.factor');
+
+        $container->registerForAutoconfiguration(ScoringAjusterInterface::class)
+            ->addTag('scoring.adjuster');
     }
 }
